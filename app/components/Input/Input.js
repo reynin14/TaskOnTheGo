@@ -9,13 +9,20 @@ class Input extends React.Component{
     placeholder: PropTypes.string,
   }
 
+  state = {
+    text: "",
+  }
+
   render(){
-    const { placeholder } = this.props
+    const { placeholder, onSubmit } = this.props
 
     return(
       <TextInput
         style={styles.input}
         placeholder={placeholder}
+        onChangeText={(text) => this.setState({text})}
+        value={this.state.text}
+        onSubmitEditing={() => console.log('submitting')}
       />
     )
   }
